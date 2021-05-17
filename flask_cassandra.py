@@ -189,8 +189,7 @@ class CassandraCluster(object):
         if self.cluster is None:
             self.cluster = Cluster(
                 self.nodes,
-                port=self.app.config.get('CASSANDRA_PORT', 9042))
-
+                self.port
             # If there is authentication data in the config, let’s use it
             # FIXME: this may not be compatible with older Cassandra
             # versions, but do we really want to support that?
